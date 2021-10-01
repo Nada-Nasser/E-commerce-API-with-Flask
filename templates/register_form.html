@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Register
+{% endblock title %}
+
+
+{% block content %}
+<body class="text-center">
+    <div class="container">
+    <form method="POST" class="form-register" style="color: white">
+        {{ form.hidden_tag() }}
+        <img class="mb-4" src="https://res.cloudinary.com/jimshapedcoding/image/upload/v1597332609/android-icon-192x192_ove2a7.png" alt="">
+        <h1 class="h3 mb-3 font-weight-normal">
+            Please Create your Account
+        </h1>
+        <br/>
+
+        {{ form.username.label() }}
+        {{ form.username(class="form-control", placholder="User Name") }}
+
+        {{ form.email.label() }}
+        {{ form.email(class="form-control", placholder="Email") }}
+
+        {{ form.password1.label() }}
+        {{ form.password1(class="form-control") }}
+
+        {{ form.password2.label() }}
+        {{ form.password2(class="form-control") }}
+
+        <br/>
+        {{ form.submit_button(class="btn btn-block btn-lg btn-primary") }}
+  <br/>
+    </form>
+    </div>
+</body>
+{% endblock content %}
