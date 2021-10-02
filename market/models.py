@@ -34,8 +34,10 @@ class User(db.Model, UserMixin):
         self.hashed_password = bcrypt.generate_password_hash(password_plain_text).decode('utf-8')
 
     def check_password_correction(self,attempt_password):
-        return bcrypt.check_password_hash(self.hashed_password,attempt_password)
+        return bcrypt.check_password_hash(self.hashed_password, attempt_password)
 
+    def can_purchase(self, item_price):
+        return self.budget >= item_price
 
 class Item(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
